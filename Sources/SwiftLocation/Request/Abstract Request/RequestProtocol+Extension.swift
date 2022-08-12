@@ -83,11 +83,6 @@ public extension RequestProtocol {
     // MARK: - Private Functions
     
     private func receiveError(_ error: LocationError) {
-        guard !error.isDataDiscarded else {
-            // discarded data do not produce any error.
-            return
-        }
-        
         // Otherwise error is dispatched
         dispatchData(.failure(error))
         if evictionPolicy.contains(.onError) { // if in case of error we should cancel the request.
