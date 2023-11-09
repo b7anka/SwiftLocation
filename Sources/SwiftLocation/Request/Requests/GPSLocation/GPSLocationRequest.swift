@@ -26,7 +26,7 @@ import Foundation
 import CoreLocation
 
 /// The following class define a single location request.
-public class GPSLocationRequest: RequestProtocol, Codable {
+open class GPSLocationRequest: RequestProtocol, Codable {
     public typealias ProducedData = CLLocation
     
     /// Unique identifier of the request.
