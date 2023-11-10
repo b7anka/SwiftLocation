@@ -25,9 +25,10 @@
 import Foundation
 import CoreLocation
 
+public typealias ProducedData = CLLocation
+
 /// The following class define a single location request.
-open class GPSLocationRequest: RequestProtocol, Codable {
-    public typealias ProducedData = CLLocation
+public class GPSLocationRequest: RequestProtocol, Codable {
     
     /// Unique identifier of the request.
     public var uuid: Identifier = UUID().uuidString
@@ -99,7 +100,7 @@ open class GPSLocationRequest: RequestProtocol, Codable {
     }
     
     // Decodable protocol
-    public required init(from decoder: Decoder) throws {
+    required public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.uuid = try container.decode(String.self, forKey: .uuid)
         self.isEnabled = try container.decode(Bool.self, forKey: .isEnabled)
@@ -110,11 +111,11 @@ open class GPSLocationRequest: RequestProtocol, Codable {
      
     // MARK: - Initialization
     
-    convenience public init() {
+    convenience public init(name: String?) {
         self.init(nil)
         self.uuid = UUID().uuidString
         self.isEnabled = true
-        self.name = nil
+        self.name = name
     }
     
     /// Initialize.
