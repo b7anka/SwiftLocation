@@ -110,9 +110,16 @@ open class GPSLocationRequest: RequestProtocol, Codable {
      
     // MARK: - Initialization
     
+    convenience public init() {
+        self.init(nil)
+        self.uuid = UUID().uuidString
+        self.isEnabled = true
+        self.name = nil
+    }
+    
     /// Initialize.
     /// - Parameter locationOptions: custom options to use.
-    public init(_ locationOptions: GPSLocationOptions? = nil) {
+    internal init(_ locationOptions: GPSLocationOptions? = nil) {
         self.options = locationOptions ?? GPSLocationOptions()
         self.options.request = self
         
