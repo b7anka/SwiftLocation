@@ -25,11 +25,9 @@
 import Foundation
 import CoreLocation
 
-public typealias ProducedData = CLLocation
-
 /// The following class define a single location request.
 public class GPSLocationRequest: RequestProtocol, Codable {
-    
+    public typealias ProducedData = CLLocation
     /// Unique identifier of the request.
     public var uuid: Identifier = UUID().uuidString
     

@@ -27,11 +27,12 @@ import Foundation
 // Identifier of an item.
 public typealias Identifier = String
 
-public typealias DataCallback = ((Result<ProducedData, LocationError>) -> Void)
-
 // MARK: - RequestProtocol
 
 public protocol RequestProtocol: AnyObject, Hashable, CustomStringConvertible {
+    
+    associatedtype ProducedData
+    typealias DataCallback = ((Result<ProducedData, LocationError>) -> Void)
     
     // MARK: - Public Properties
     
