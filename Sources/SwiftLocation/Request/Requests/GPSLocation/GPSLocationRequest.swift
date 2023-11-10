@@ -112,7 +112,7 @@ open class GPSLocationRequest: RequestProtocol, Codable {
     
     /// Initialize.
     /// - Parameter locationOptions: custom options to use.
-    internal init(_ locationOptions: GPSLocationOptions? = nil) {
+    public init(_ locationOptions: GPSLocationOptions? = nil) {
         self.options = locationOptions ?? GPSLocationOptions()
         self.options.request = self
         
